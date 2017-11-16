@@ -76,6 +76,13 @@ class LineNode: NSObject {
         endNode.position = posEnd
         
         let posStart = startNode.position
+
+        // MARK: Force posEnd to be on same Y position as posStart
+        print("posStart = \(posStart)")
+        print("posEnd = \(posEnd)")
+        endNode.position = SCNVector3(x: posEnd.x, y: posStart.y, z: posEnd.z)
+        print("new posEnd = \(endNode.position)")
+
         let middle = SCNVector3((posStart.x+posEnd.x)/2.0, (posStart.y+posEnd.y)/2.0+0.002, (posStart.z+posEnd.z)/2.0)
         
         let text = textNode.geometry as! SCNText

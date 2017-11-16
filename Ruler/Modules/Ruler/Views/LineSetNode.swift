@@ -43,7 +43,13 @@ class LineSetNode: NSObject {
     
     
     func addLine() {
-        currentNode = LineNode(startPos: currentNode.endNode.position,
+        // MARK: Force y positions to be the same
+        var position = currentNode.endNode.position
+        if let firstNode = lines.first {
+            position = SCNVector3(x: position.x, y: firstNode.endNode.position.y, z: position.z)
+        }
+
+        currentNode = LineNode(startPos: position,
                                sceneV: sceneView,
                                color: (UIColor.blue, UIColor.blue),
                                font: UIFont.systemFont(ofSize: 6))
