@@ -45,20 +45,22 @@ private func rayIntersectionWithHorizontalPlane(rayOrigin: SCNVector3, direction
 extension ARSCNView {
     func worldPositionFromScreenPosition(_ position: CGPoint,
                                          objectPos: SCNVector3?,
-                                         infinitePlane: Bool = false) -> (position: SCNVector3?, planeAnchor: ARPlaneAnchor?, hitAPlane: Bool) {
+                                         infinitePlane: Bool = false, skippingFirstStep: Bool = false) -> (position: SCNVector3?, planeAnchor: ARPlaneAnchor?, hitAPlane: Bool) {
         
         let sceneView = self
         // -------------------------------------------------------------------------------
         // 1. Always do a hit test against exisiting plane anchors first.
         //    (If any such anchors exist & only within their extents.)
-        let planeHitTestResults = sceneView.hitTest(position, types: .existingPlaneUsingExtent)
-        if let result = planeHitTestResults.first {
-            
-            let planeHitTestPosition = SCNVector3.positionFromTransform(result.worldTransform)
-            let planeAnchor = result.anchor
-            
-            // Return immediately - this is the best possible outcome.
-            return (planeHitTestPosition, planeAnchor as? ARPlaneAnchor, true)
+        if !skippingFirstStep {
+            let planeHitTestResults = sceneView.hitTest(position, types: .existingPlaneUsingExtent)
+            if let result = planeHitTestResults.first {
+                
+                let planeHitTestPosition = SCNVector3.positionFromTransform(result.worldTransform)
+                let planeAnchor = result.anchor
+                
+                // Return immediately - this is the best possible outcome.
+                return (planeHitTestPosition, planeAnchor as? ARPlaneAnchor, true)
+            }
         }
         
         // -------------------------------------------------------------------------------

@@ -45,8 +45,8 @@ class LineSetNode: NSObject {
     func addLine() {
         // MARK: Force y positions to be the same
         var position = currentNode.endNode.position
-        if let firstNode = lines.first {
-            position = SCNVector3(x: position.x, y: firstNode.endNode.position.y, z: position.z)
+        if lines.count == 1 {
+            position = SCNVector3(x: position.x, y: lines.first!.endNode.position.y, z: position.z)
         }
 
         currentNode = LineNode(startPos: position,

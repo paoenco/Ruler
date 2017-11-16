@@ -336,7 +336,11 @@ class RulerARProViewController: UIViewController {
         case .length:
             if let l = line {
                 lines.append(l)
-                line = nil
+                if lines.count == 1 || lines.count == 2 {
+                    line = LineNode(startPos: lines[0].startNode.position, sceneV: sceneView)
+                } else {
+                    line = nil
+                }
             } else  {
                 let startPos = sceneView.worldPositionFromScreenPosition(indicator.center, objectPos: nil)
                 if let p = startPos.position {
@@ -502,7 +506,7 @@ fileprivate extension RulerARProViewController {
     }
     
     func updateLine() -> Void {
-        let startPos = sceneView.worldPositionFromScreenPosition(self.indicator.center, objectPos: nil)
+        let startPos = sceneView.worldPositionFromScreenPosition(self.indicator.center, objectPos: nil, skippingFirstStep: lines.count == 2)
         if let p = startPos.position {
             let camera = self.sceneView.session.currentFrame?.camera
             let cameraPos = SCNVector3.positionFromTransform(camera!.transform)
@@ -521,7 +525,7 @@ fileprivate extension RulerARProViewController {
                     cancleButton.normalImage = Image.Close.delete
                     return
                 }
-                let length = currentLine.updatePosition(pos: p, camera: self.sceneView.session.currentFrame?.camera, unit: measureUnit)
+                let length = currentLine.updatePosition(pos: p, camera: self.sceneView.session.currentFrame?.camera, unit: measureUnit, limitToHorizontal: lines.count < 2)
                 measureValue =  MeasurementUnit(meterUnitValue: length, isArea: false)
                 cancleButton.normalImage = Image.Close.cancle
             case .area:
