@@ -114,9 +114,9 @@ class LineNode: NSObject {
         return CylinderLine(parent: sceneView!.scene.rootNode,
                             v1: nodeA.position,
                             v2: nodeB.position,
-                            radius: 0.001,
+                            radius: 0.01,
                             radSegmentCount: 16,
-                            color: UIColor.white)
+                            color: UIColor.blue)
         
     }
     
