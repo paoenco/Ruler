@@ -636,10 +636,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 858CBVXSWP;
+				DEVELOPMENT_TEAM = F87V5GR3ER;
 				INFOPLIST_FILE = "$(SRCROOT)/Ruler/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.playalot.ruler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lionhylra.ruler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ruler/Ruler-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -655,10 +655,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 858CBVXSWP;
+				DEVELOPMENT_TEAM = F87V5GR3ER;
 				INFOPLIST_FILE = "$(SRCROOT)/Ruler/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.playalot.ruler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lionhylra.ruler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ruler/Ruler-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

@@ -17,6 +17,9 @@ class LineNode: NSObject {
     var lineNode: SCNNode?
     let textNode: SCNNode
     let sceneView: ARSCNView?
+    var length: Float {
+        return startNode.position.distanceFromPos(pos: endNode.position)
+    }
     private var recentFocusSquarePositions = [SCNVector3]()
 
     init(startPos: SCNVector3,
