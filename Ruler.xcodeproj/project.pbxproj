@@ -121,8 +121,7 @@
 				68D736981FBD280900953B41 /* ARKitInteractionFocusSquare.swift */,
 				68D736991FBD280900953B41 /* FocusSquareSegment.swift */,
 			);
-			name = "Focus Square";
-			path = "../../../../sandbox/Handling3DInteractionandUIControlsinAugmentedReality/ARKitInteraction/Focus Square";
+			path = "Focus Square";
 			sourceTree = "<group>";
 		};
 		68D7369B1FBD280900953B41 /* Virtual Objects */ = {
@@ -131,8 +130,7 @@
 				68D7369C1FBD280900953B41 /* VirtualObject.swift */,
 				68D7369D1FBD280900953B41 /* VirtualObjectLoader.swift */,
 			);
-			name = "Virtual Objects";
-			path = "../../../../sandbox/Handling3DInteractionandUIControlsinAugmentedReality/ARKitInteraction/Virtual Objects";
+			path = "Virtual Objects";
 			sourceTree = "<group>";
 		};
 		68D7369F1FBD280900953B41 /* Additional View Controllers */ = {
@@ -141,8 +139,7 @@
 				68D736A01FBD280900953B41 /* StatusViewController.swift */,
 				68D736A11FBD280900953B41 /* VirtualObjectSelection.swift */,
 			);
-			name = "Additional View Controllers";
-			path = "../../../../sandbox/Handling3DInteractionandUIControlsinAugmentedReality/ARKitInteraction/Additional View Controllers";
+			path = "Additional View Controllers";
 			sourceTree = "<group>";
 		};
 		6A6861121F6F89D600882BCE = {
