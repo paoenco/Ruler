@@ -373,6 +373,10 @@ class RulerARProViewController: UIViewController {
                     line = nil
                 }
             } else  {
+                if lines.count == 3 {
+                    lines.forEach{$0.removeFromParent()}
+                    lines = []
+                }
                 let startPos = sceneView.worldPositionFromScreenPosition(indicator.center, objectPos: nil)
                 if let p = startPos.position {
                     line = LineNode(startPos: p, sceneV: sceneView)
