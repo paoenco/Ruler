@@ -19,6 +19,9 @@ class CarSelectorTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let record = self.vehicleInfoRepository.records[indexPath.row]
+        print(record)
+        print("vehicle model = \(record.vehicle.model)")
         dismiss(animated: true) {
             
         }

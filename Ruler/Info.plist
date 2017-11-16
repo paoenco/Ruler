@@ -27,6 +27,11 @@
 	<string>09262355</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>The AR function requires camera support</string>
 	<key>NSPhotoLibraryUsageDescription</key>

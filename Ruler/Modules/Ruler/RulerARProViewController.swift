@@ -34,6 +34,7 @@ class RulerARProViewController: UIViewController {
             static let reset = #imageLiteral(resourceName: "menu_reset")
             static let setting = #imageLiteral(resourceName: "menu_setting")
             static let save = #imageLiteral(resourceName: "menu_save")
+            static let add = #imageLiteral(resourceName: "add")
         }
         struct More {
             static let close = #imageLiteral(resourceName: "more_off")
@@ -74,7 +75,7 @@ class RulerARProViewController: UIViewController {
         }
 
     }
-    private let sceneView: ARSCNView =  ARSCNView(frame: UIScreen.main.bounds)
+    private let sceneView: VirtualObjectARView =  VirtualObjectARView(frame: UIScreen.main.bounds)
     private let indicator = UIImageView()
     private let resultLabel = UILabel().then({
         $0.textAlignment = .center
@@ -108,9 +109,21 @@ class RulerARProViewController: UIViewController {
     private var lineSets: [LineSetNode] = []
     private var planes = [ARPlaneAnchor: Plane]()
     private var focusSquare: FocusSquare?
-    
-    
-    
+
+    /// A serial queue used to coordinate adding or removing nodes from the scene.
+    let updateQueue = DispatchQueue(label: "com.example.apple-samplecode.arkitexample.serialSceneKitQueue")
+
+    /// A type which manages gesture manipulation of virtual content in the scene.
+    lazy var virtualObjectInteraction = VirtualObjectInteraction(sceneView: sceneView)
+
+    /// Coordinates the loading and unloading of reference nodes for virtual objects.
+    let virtualObjectLoader = VirtualObjectLoader()
+
+    /// Convenience accessor for the session owned by ARSCNView.
+    var session: ARSession {
+        return sceneView.session
+    }
+
     private var mode = MeasurementMode.length
     private var finishButtonState = false
     private var lastState: ARCamera.TrackingState = .notAvailable {
@@ -158,6 +171,7 @@ class RulerARProViewController: UIViewController {
                                                           menuButton.reset,
                                                           menuButton.setting,
                                                           menuButton.selection,
+                                                          menuButton.add,
                                                           menuButton.more)
     
     private let placeButton = UIButton(size: CGSize(width: 80, height: 80), image: Image.Place.length)
@@ -168,8 +182,8 @@ class RulerARProViewController: UIViewController {
                         reset: UIButton(size: CGSize(width: 50, height: 50), image: Image.Menu.reset),
                         setting: UIButton(size: CGSize(width: 50, height: 50), image: Image.Menu.setting),
                         selection: UIButton(size: CGSize(width: 50, height: 50), image: Image.Menu.length),
-                        more: UIButton(size: CGSize(width: 60, height: 60), image: Image.More.close)
-                        )
+                        more: UIButton(size: CGSize(width: 60, height: 60), image: Image.More.close),
+                        add: UIButton(size: CGSize(width: 50, height: 50), image: Image.Menu.add))
     
    
     
@@ -263,6 +277,7 @@ class RulerARProViewController: UIViewController {
             menuButton.measurement.addTarget(self, action: #selector(RulerARProViewController.changeMeasureMode(_:)), for: .touchUpInside)
             menuButton.save.addTarget(self, action: #selector(RulerARProViewController.saveImage(_:)), for: .touchUpInside)
             menuButton.selection.addTarget(self, action: #selector(RulerARProViewController.showSelection(_:)), for: .touchUpInside)
+            menuButton.add.addTarget(self, action: #selector(didTapAdd(_:)), for: .touchUpInside)
             menuButtonSet.frame = CGRect(x: (width - 40 - 60), y: placeButton.frame.origin.y + 10, width: 60, height: 60)
             
 
@@ -294,6 +309,18 @@ class RulerARProViewController: UIViewController {
 
 // MARK: - Target Action
 @objc private extension RulerARProViewController {
+
+    func didTapAdd(_ sender: UIButton) {
+        print("didTapAdd!")
+        if let carModel = VirtualObject.carModel {
+            virtualObjectLoader.loadVirtualObject(carModel, loadedHandler: { [unowned self] loadedObject in
+                DispatchQueue.main.async {
+                    self.placeVirtualObject(carModel)
+                }
+            })
+        }
+    }
+
     // 保存测量结果
     func saveImage(_ sender: UIButton) {
         func saveImage(image: UIImage) {
@@ -379,6 +406,7 @@ class RulerARProViewController: UIViewController {
         }
         restartSceneView()
         measureValue = nil
+        virtualObjectLoader.removeAllVirtualObjects()
     }
     
     // 删除上一操作
@@ -619,6 +647,7 @@ extension RulerARProViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         DispatchQueue.main.async {
+            self.virtualObjectInteraction.updateObjectToCurrentTrackingPosition()
             self.updateFocusSquare()
             self.updateLine()
         }
@@ -630,12 +659,26 @@ extension RulerARProViewController: ARSCNViewDelegate {
                 self.addPlane(node: node, anchor: planeAnchor)
             }
         }
+
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        updateQueue.async {
+            for object in self.virtualObjectLoader.loadedObjects {
+                object.adjustOntoPlaneAnchor(planeAnchor, using: node)
+            }
+        }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
             if let planeAnchor = anchor as? ARPlaneAnchor {
                 self.updatePlane(anchor: planeAnchor)
+            }
+        }
+
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        updateQueue.async {
+            for object in self.virtualObjectLoader.loadedObjects {
+                object.adjustOntoPlaneAnchor(planeAnchor, using: node)
             }
         }
     }
@@ -652,6 +695,36 @@ extension RulerARProViewController: ARSCNViewDelegate {
         let state = camera.trackingState
         DispatchQueue.main.async {
             self.lastState = state
+        }
+    }
+}
+
+// ARKitIntegration
+extension RulerARProViewController {
+
+    func placeVirtualObject(_ virtualObject: VirtualObject) {
+        guard let cameraTransform = session.currentFrame?.camera.transform,
+            let focusSquarePosition = focusSquare?.lastPosition else {
+//                statusViewController.showMessage("CANNOT PLACE OBJECT\nTry moving left or right.")
+                return
+        }
+
+        let min = virtualObject.boundingBox.min
+        let max = virtualObject.boundingBox.max
+
+        let distanceX = max.x - min.x
+        let distanceY = max.y - min.y
+        let distanceZ = max.z - min.z
+
+        let boundingBoxVolume = distanceX * distanceY * distanceZ
+        print("min: \(min), max: \(max), volume: \(boundingBoxVolume)")
+
+        virtualObjectInteraction.selectedObject = virtualObject
+        let position = float3(x: focusSquarePosition.x, y: focusSquarePosition.y, z: focusSquarePosition.z)
+        virtualObject.setPosition(position, relativeTo: cameraTransform, smoothMovement: false)
+
+        updateQueue.async {
+            self.sceneView.scene.rootNode.addChildNode(virtualObject)
         }
     }
 }

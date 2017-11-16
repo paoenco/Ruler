@@ -125,6 +125,14 @@ extension VirtualObject {
         // Recurse up to check if the parent is a `VirtualObject`.
         return existingObjectContainingNode(parent)
     }
+
+    static let carModel: VirtualObject? = {
+        return availableObjects.first { $0.modelName == "car" }
+    }()
+
+    static let fiat500Model: VirtualObject? = {
+        return availableObjects.first { $0.modelName == "fiat500" }
+    }()
 }
 
 extension Collection where Iterator.Element == Float, IndexDistance == Int {

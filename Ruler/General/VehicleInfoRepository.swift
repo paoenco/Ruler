@@ -6,7 +6,9 @@ class VehicleInfoRepository {
     init() {
         self.records = [Record]()
         loadData()
-        sleep(1)
+        while self.records.count < 1 {
+            sleep(1)
+        }
     }
     
     func loadData() {
