@@ -311,8 +311,8 @@ class RulerARProViewController: UIViewController {
 @objc private extension RulerARProViewController {
 
     func didTapAdd(_ sender: UIButton) {
-        print("didTapAdd!")
-        if let carModel = VirtualObject.carModel {
+        if let carModel = VirtualObject.fiat500Model {
+            let boundingBox = carModel.boundingBox
             virtualObjectLoader.loadVirtualObject(carModel, loadedHandler: { [unowned self] loadedObject in
                 DispatchQueue.main.async {
                     self.placeVirtualObject(carModel)
@@ -711,13 +711,15 @@ extension RulerARProViewController {
 
         let min = virtualObject.boundingBox.min
         let max = virtualObject.boundingBox.max
+        let distance = max - min
+//        print("distance: \(distance)")
 
-        let distanceX = max.x - min.x
-        let distanceY = max.y - min.y
-        let distanceZ = max.z - min.z
+        let length = distance.z
+        let width = distance.x
+        let height = distance.y
 
-        let boundingBoxVolume = distanceX * distanceY * distanceZ
-        print("min: \(min), max: \(max), volume: \(boundingBoxVolume)")
+        let resultString = "width: \(width) | length: \(length) | height: \(height)"
+        resultLabel.text = resultString
 
         virtualObjectInteraction.selectedObject = virtualObject
         let position = float3(x: focusSquarePosition.x, y: focusSquarePosition.y, z: focusSquarePosition.z)
