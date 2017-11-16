@@ -2,6 +2,8 @@ import UIKit
 
 class CarSelectorTableViewController: UITableViewController {
     var vehicleInfoRepository : VehicleInfoRepository
+
+    var selectionHandler: ((String) -> Void)?
     
     init(vehicleInfoRepository: VehicleInfoRepository) {
         self.vehicleInfoRepository = vehicleInfoRepository
@@ -20,11 +22,8 @@ class CarSelectorTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let record = self.vehicleInfoRepository.records[indexPath.row]
-        print(record)
-        print("vehicle model = \(record.vehicle.model)")
-        dismiss(animated: true) {
-            
-        }
+        selectionHandler?(record.vehicle.model)
+        dismiss(animated: true)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

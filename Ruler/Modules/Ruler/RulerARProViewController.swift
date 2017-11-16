@@ -312,7 +312,6 @@ class RulerARProViewController: UIViewController {
 
     func didTapAdd(_ sender: UIButton) {
         if let carModel = VirtualObject.fiat500Model {
-            let boundingBox = carModel.boundingBox
             virtualObjectLoader.loadVirtualObject(carModel, loadedHandler: { [unowned self] loadedObject in
                 DispatchQueue.main.async {
                     self.placeVirtualObject(carModel)
@@ -458,10 +457,36 @@ class RulerARProViewController: UIViewController {
     }
     
     func showSelection(_ sender: UIButton) {
-        guard let vc = UIStoryboard(name: "CarSelection", bundle: nil).instantiateInitialViewController() else {
+        guard let vc = UIStoryboard(name: "CarSelection", bundle: nil).instantiateInitialViewController() as? UINavigationController else {
             return
         }
         vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+
+        if let tableViewController = vc.viewControllers.first as? CarSelectorTableViewController {
+            tableViewController.selectionHandler = { [unowned self] model in
+                print("selected model is \(model)")
+                if model == "500" {
+                    if let carModel = VirtualObject.fiat500Model {
+                        self.virtualObjectLoader.loadVirtualObject(carModel, loadedHandler: { [unowned self] loadedObject in
+                            DispatchQueue.main.async {
+                                self.placeVirtualObject(carModel)
+                            }
+                        })
+                    }
+                }
+                else {
+                    if let carModel = VirtualObject.carModel {
+                        self.virtualObjectLoader.loadVirtualObject(carModel, loadedHandler: { [unowned self] loadedObject in
+                            DispatchQueue.main.async {
+                                self.placeVirtualObject(carModel)
+                            }
+                        })
+                    }
+                }
+            }
+        }
+
+        
         present(vc, animated: true, completion: nil)
     }
     
