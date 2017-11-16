@@ -17,6 +17,9 @@ class LineNode: NSObject {
     var lineNode: SCNNode?
     let textNode: SCNNode
     let sceneView: ARSCNView?
+    var length: Float {
+        return startNode.position.distanceFromPos(pos: endNode.position)
+    }
     private var recentFocusSquarePositions = [SCNVector3]()
 
     init(startPos: SCNVector3,
@@ -67,21 +70,17 @@ class LineNode: NSObject {
         removeFromParent()
     }
     
-    public func updatePosition(pos: SCNVector3, camera: ARCamera?, unit: MeasurementUnit.Unit = MeasurementUnit.Unit.centimeter) -> Float {
+    public func updatePosition(pos: SCNVector3, camera: ARCamera?, unit: MeasurementUnit.Unit = MeasurementUnit.Unit.centimeter, limitToHorizontal: Bool = true) -> Float {
         let posEnd = updateTransform(for: pos, camera: camera)
         
         if endNode.parent == nil {
             sceneView?.scene.rootNode.addChildNode(endNode)
         }
         endNode.position = posEnd
-        
+        if limitToHorizontal {
+            endNode.position.y = startNode.position.y
+        }
         let posStart = startNode.position
-
-        // MARK: Force posEnd to be on same Y position as posStart
-        print("posStart = \(posStart)")
-        print("posEnd = \(posEnd)")
-        endNode.position = SCNVector3(x: posEnd.x, y: posStart.y, z: posEnd.z)
-        print("new posEnd = \(endNode.position)")
 
         let middle = SCNVector3((posStart.x+posEnd.x)/2.0, (posStart.y+posEnd.y)/2.0+0.002, (posStart.z+posEnd.z)/2.0)
         

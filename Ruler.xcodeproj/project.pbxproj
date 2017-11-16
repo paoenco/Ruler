@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68C8B6D61FBD4D1A00515832 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C8B6D51FBD4D1A00515832 /* Models.scnassets */; };
+		68C8B6D81FBD4E6B00515832 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C8B6D71FBD4E6B00515832 /* Main.storyboard */; };
 		68D736A71FBD280900953B41 /* ViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736951FBD280800953B41 /* ViewController+Actions.swift */; };
 		68D736A81FBD280900953B41 /* ViewController+ObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736961FBD280900953B41 /* ViewController+ObjectSelection.swift */; };
 		68D736A91FBD280900953B41 /* ARKitInteractionFocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736981FBD280900953B41 /* ARKitInteractionFocusSquare.swift */; };
@@ -46,10 +48,19 @@
 		6AF69F311F71378500556339 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AF69F331F71378500556339 /* SettingViewController.storyboard */; };
 		6AFF56841F78B53B00AE7595 /* RulerARProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF56831F78B53B00AE7595 /* RulerARProViewController.swift */; };
 		6AFF56861F78BD7B00AE7595 /* PopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF56851F78BD7B00AE7595 /* PopButton.swift */; };
+		A53029AC1FBD2EC40043E0ED /* VehicleInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53029AB1FBD2EC40043E0ED /* VehicleInfoRepository.swift */; };
+		A53029AE1FBD2F1B0043E0ED /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53029AD1FBD2F1B0043E0ED /* Record.swift */; };
+		A53029B01FBD39820043E0ED /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53029AF1FBD39820043E0ED /* Vehicle.swift */; };
+		A53029B41FBD3B0D0043E0ED /* CarSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53029B31FBD3B0D0043E0ED /* CarSelectorTableViewController.swift */; };
+		A53029B61FBD3D930043E0ED /* CarSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53029B51FBD3D930043E0ED /* CarSelectionCell.swift */; };
+		A53029B81FBD41600043E0ED /* CarSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A53029B71FBD41600043E0ED /* CarSelection.storyboard */; };
+		BE24ABC61FBD607C00F4D294 /* splash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE24ABC51FBD607C00F4D294 /* splash.jpg */; };
 		FB417B86065A48520330817B /* Pods_Ruler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F224D5CD6B11A57FC3657F6C /* Pods_Ruler.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68C8B6D51FBD4D1A00515832 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
+		68C8B6D71FBD4E6B00515832 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		68D736951FBD280800953B41 /* ViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Actions.swift"; sourceTree = "<group>"; };
 		68D736961FBD280900953B41 /* ViewController+ObjectSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ObjectSelection.swift"; sourceTree = "<group>"; };
 		68D736981FBD280900953B41 /* ARKitInteractionFocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARKitInteractionFocusSquare.swift; sourceTree = "<group>"; };
@@ -97,7 +108,14 @@
 		6AFF56831F78B53B00AE7595 /* RulerARProViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerARProViewController.swift; sourceTree = "<group>"; };
 		6AFF56851F78BD7B00AE7595 /* PopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopButton.swift; sourceTree = "<group>"; };
 		7610879C429C51E6F2EE786A /* Pods-Ruler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ruler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ruler/Pods-Ruler.release.xcconfig"; sourceTree = "<group>"; };
+		A53029AB1FBD2EC40043E0ED /* VehicleInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleInfoRepository.swift; sourceTree = "<group>"; };
+		A53029AD1FBD2F1B0043E0ED /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		A53029AF1FBD39820043E0ED /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		A53029B31FBD3B0D0043E0ED /* CarSelectorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSelectorTableViewController.swift; sourceTree = "<group>"; };
+		A53029B51FBD3D930043E0ED /* CarSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSelectionCell.swift; sourceTree = "<group>"; };
+		A53029B71FBD41600043E0ED /* CarSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarSelection.storyboard; sourceTree = "<group>"; };
 		A791E8A49E1DC92AAD59684D /* Pods-Ruler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ruler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ruler/Pods-Ruler.debug.xcconfig"; sourceTree = "<group>"; };
+		BE24ABC51FBD607C00F4D294 /* splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splash.jpg; sourceTree = "<group>"; };
 		F224D5CD6B11A57FC3657F6C /* Pods_Ruler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ruler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -187,11 +205,14 @@
 		6A6861361F6FAC3100882BCE /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				68C8B6D71FBD4E6B00515832 /* Main.storyboard */,
 				6A3365961F79205E0084BDE4 /* SetPoint.wav */,
 				6AF69F2A1F7128B200556339 /* R.generated.swift */,
 				6AA965E11F711B020027ACAC /* LaunchScreen.storyboard */,
 				6AA965E41F711B3A0027ACAC /* RulerString.strings */,
 				6A6861371F6FAC3100882BCE /* Assets.xcassets */,
+				BE24ABC51FBD607C00F4D294 /* splash.jpg */,
+				68C8B6D51FBD4D1A00515832 /* Models.scnassets */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -229,6 +250,9 @@
 				6A6861431F6FAD4100882BCE /* Views */,
 				6A6861421F6FAD2C00882BCE /* Classes */,
 				6AFF56831F78B53B00AE7595 /* RulerARProViewController.swift */,
+				A53029B31FBD3B0D0043E0ED /* CarSelectorTableViewController.swift */,
+				A53029B51FBD3D930043E0ED /* CarSelectionCell.swift */,
+				A53029B71FBD41600043E0ED /* CarSelection.storyboard */,
 			);
 			path = Ruler;
 			sourceTree = "<group>";
@@ -262,6 +286,9 @@
 				6A6861511F6FB66B00882BCE /* Category */,
 				6A6861541F6FB76E00882BCE /* Utilities.swift */,
 				6AA965BE1F7015AA0027ACAC /* UIAlertController+Dismiss.swift */,
+				A53029AB1FBD2EC40043E0ED /* VehicleInfoRepository.swift */,
+				A53029AD1FBD2F1B0043E0ED /* Record.swift */,
+				A53029AF1FBD39820043E0ED /* Vehicle.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -376,6 +403,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68C8B6D81FBD4E6B00515832 /* Main.storyboard in Resources */,
+				68C8B6D61FBD4D1A00515832 /* Models.scnassets in Resources */,
+				BE24ABC61FBD607C00F4D294 /* splash.jpg in Resources */,
+				A53029B81FBD41600043E0ED /* CarSelection.storyboard in Resources */,
 				6A3365971F7923560084BDE4 /* SetPoint.wav in Resources */,
 				6AA965E51F711B3E0027ACAC /* RulerString.strings in Resources */,
 				6AA965E61F711B470027ACAC /* LaunchScreen.storyboard in Resources */,
@@ -461,6 +492,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53029B41FBD3B0D0043E0ED /* CarSelectorTableViewController.swift in Sources */,
+				A53029AC1FBD2EC40043E0ED /* VehicleInfoRepository.swift in Sources */,
 				68D736AF1FBD280900953B41 /* StatusViewController.swift in Sources */,
 				6AFF56841F78B53B00AE7595 /* RulerARProViewController.swift in Sources */,
 				68D736AD1FBD280900953B41 /* VirtualObjectLoader.swift in Sources */,
@@ -468,17 +501,20 @@
 				6AF69F2B1F7128B200556339 /* R.generated.swift in Sources */,
 				68D736B41FBD280900953B41 /* VirtualObjectInteraction.swift in Sources */,
 				6A33659B1F7955970084BDE4 /* CoreGraphics+Extension.swift in Sources */,
+				A53029AE1FBD2F1B0043E0ED /* Record.swift in Sources */,
 				68D736AA1FBD280900953B41 /* FocusSquareSegment.swift in Sources */,
 				68D736AE1FBD280900953B41 /* ViewController+ARSCNViewDelegate.swift in Sources */,
 				68D736AC1FBD280900953B41 /* VirtualObject.swift in Sources */,
 				6A6861531F6FB68500882BCE /* ARKit+Extension.swift in Sources */,
 				68D736AB1FBD280900953B41 /* ViewController.swift in Sources */,
 				6A6861591F6FB89A00882BCE /* FocusSquare.swift in Sources */,
+				A53029B01FBD39820043E0ED /* Vehicle.swift in Sources */,
 				68D736A71FBD280900953B41 /* ViewController+Actions.swift in Sources */,
 				68D736B21FBD280900953B41 /* VirtualObjectARView.swift in Sources */,
 				6A52B6341F74C37600B9F78E /* CylinderLine.swift in Sources */,
 				6A0C1D721F72702D00F92276 /* LineSetNode.swift in Sources */,
 				6AFF56861F78BD7B00AE7595 /* PopButton.swift in Sources */,
+				A53029B61FBD3D930043E0ED /* CarSelectionCell.swift in Sources */,
 				68D736A91FBD280900953B41 /* ARKitInteractionFocusSquare.swift in Sources */,
 				6AF69F271F7126A900556339 /* SettingViewController.swift in Sources */,
 				6AF69F301F71327D00556339 /* ApplicationSetting.swift in Sources */,
@@ -639,7 +675,7 @@
 				DEVELOPMENT_TEAM = 858CBVXSWP;
 				INFOPLIST_FILE = "$(SRCROOT)/Ruler/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.playalot.ruler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carsales.Ruler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ruler/Ruler-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -658,7 +694,7 @@
 				DEVELOPMENT_TEAM = 858CBVXSWP;
 				INFOPLIST_FILE = "$(SRCROOT)/Ruler/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.playalot.ruler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carsales.Ruler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ruler/Ruler-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
