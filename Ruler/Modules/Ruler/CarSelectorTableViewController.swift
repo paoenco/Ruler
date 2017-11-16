@@ -18,6 +18,12 @@ class CarSelectorTableViewController: UITableViewController {
         return 1
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismiss(animated: true) {
+            
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let record = self.vehicleInfoRepository.records[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarSelectionCell") as! CarSelectionCell

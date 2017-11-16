@@ -408,6 +408,7 @@ class RulerARProViewController: UIViewController {
         guard let vc = UIStoryboard(name: "CarSelection", bundle: nil).instantiateInitialViewController() else {
             return
         }
+        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         present(vc, animated: true, completion: nil)
     }
     
