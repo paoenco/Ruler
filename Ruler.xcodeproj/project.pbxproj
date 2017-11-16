@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68D736A71FBD280900953B41 /* ViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736951FBD280800953B41 /* ViewController+Actions.swift */; };
+		68D736A81FBD280900953B41 /* ViewController+ObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736961FBD280900953B41 /* ViewController+ObjectSelection.swift */; };
+		68D736A91FBD280900953B41 /* ARKitInteractionFocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736981FBD280900953B41 /* ARKitInteractionFocusSquare.swift */; };
+		68D736AA1FBD280900953B41 /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736991FBD280900953B41 /* FocusSquareSegment.swift */; };
+		68D736AB1FBD280900953B41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D7369A1FBD280900953B41 /* ViewController.swift */; };
+		68D736AC1FBD280900953B41 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D7369C1FBD280900953B41 /* VirtualObject.swift */; };
+		68D736AD1FBD280900953B41 /* VirtualObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D7369D1FBD280900953B41 /* VirtualObjectLoader.swift */; };
+		68D736AE1FBD280900953B41 /* ViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D7369E1FBD280900953B41 /* ViewController+ARSCNViewDelegate.swift */; };
+		68D736AF1FBD280900953B41 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736A01FBD280900953B41 /* StatusViewController.swift */; };
+		68D736B01FBD280900953B41 /* VirtualObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736A11FBD280900953B41 /* VirtualObjectSelection.swift */; };
+		68D736B11FBD280900953B41 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736A21FBD280900953B41 /* ThresholdPanGesture.swift */; };
+		68D736B21FBD280900953B41 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736A31FBD280900953B41 /* VirtualObjectARView.swift */; };
+		68D736B41FBD280900953B41 /* VirtualObjectInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D736A61FBD280900953B41 /* VirtualObjectInteraction.swift */; };
 		6A0C1D721F72702D00F92276 /* LineSetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C1D711F72702D00F92276 /* LineSetNode.swift */; };
 		6A1A770B1F6FD534003BED38 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1A770A1F6FD534003BED38 /* UIView+Extension.swift */; };
 		6A3365971F7923560084BDE4 /* SetPoint.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A3365961F79205E0084BDE4 /* SetPoint.wav */; };
@@ -43,6 +56,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68D736951FBD280800953B41 /* ViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Actions.swift"; sourceTree = "<group>"; };
+		68D736961FBD280900953B41 /* ViewController+ObjectSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ObjectSelection.swift"; sourceTree = "<group>"; };
+		68D736981FBD280900953B41 /* ARKitInteractionFocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARKitInteractionFocusSquare.swift; sourceTree = "<group>"; };
+		68D736991FBD280900953B41 /* FocusSquareSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
+		68D7369A1FBD280900953B41 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		68D7369C1FBD280900953B41 /* VirtualObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
+		68D7369D1FBD280900953B41 /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
+		68D7369E1FBD280900953B41 /* ViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		68D736A01FBD280900953B41 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		68D736A11FBD280900953B41 /* VirtualObjectSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectSelection.swift; sourceTree = "<group>"; };
+		68D736A21FBD280900953B41 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
+		68D736A31FBD280900953B41 /* VirtualObjectARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
+		68D736A61FBD280900953B41 /* VirtualObjectInteraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectInteraction.swift; sourceTree = "<group>"; };
 		6A0C1D711F72702D00F92276 /* LineSetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSetNode.swift; sourceTree = "<group>"; };
 		6A1A770A1F6FD534003BED38 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		6A3365961F79205E0084BDE4 /* SetPoint.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SetPoint.wav; sourceTree = "<group>"; };
@@ -101,6 +127,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68D736971FBD280900953B41 /* Focus Square */ = {
+			isa = PBXGroup;
+			children = (
+				68D736981FBD280900953B41 /* ARKitInteractionFocusSquare.swift */,
+				68D736991FBD280900953B41 /* FocusSquareSegment.swift */,
+			);
+			path = "Focus Square";
+			sourceTree = "<group>";
+		};
+		68D7369B1FBD280900953B41 /* Virtual Objects */ = {
+			isa = PBXGroup;
+			children = (
+				68D7369C1FBD280900953B41 /* VirtualObject.swift */,
+				68D7369D1FBD280900953B41 /* VirtualObjectLoader.swift */,
+			);
+			path = "Virtual Objects";
+			sourceTree = "<group>";
+		};
+		68D7369F1FBD280900953B41 /* Additional View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				68D736A01FBD280900953B41 /* StatusViewController.swift */,
+				68D736A11FBD280900953B41 /* VirtualObjectSelection.swift */,
+			);
+			path = "Additional View Controllers";
+			sourceTree = "<group>";
+		};
 		6A6861121F6F89D600882BCE = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +219,16 @@
 		6A68613F1F6FAC6B00882BCE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				68D7369F1FBD280900953B41 /* Additional View Controllers */,
+				68D736971FBD280900953B41 /* Focus Square */,
+				68D736A21FBD280900953B41 /* ThresholdPanGesture.swift */,
+				68D7369A1FBD280900953B41 /* ViewController.swift */,
+				68D736951FBD280800953B41 /* ViewController+Actions.swift */,
+				68D7369E1FBD280900953B41 /* ViewController+ARSCNViewDelegate.swift */,
+				68D736961FBD280900953B41 /* ViewController+ObjectSelection.swift */,
+				68D7369B1FBD280900953B41 /* Virtual Objects */,
+				68D736A31FBD280900953B41 /* VirtualObjectARView.swift */,
+				68D736A61FBD280900953B41 /* VirtualObjectInteraction.swift */,
 				6AA965C01F70D2E70027ACAC /* Setting */,
 				6A6861401F6FAC6B00882BCE /* Ruler */,
 			);
@@ -420,11 +483,14 @@
 				A53029B41FBD3B0D0043E0ED /* CarSelectorTableViewController.swift in Sources */,
 				A53029AC1FBD2EC40043E0ED /* VehicleInfoRepository.swift in Sources */,
 				6AFF56841F78B53B00AE7595 /* RulerARProViewController.swift in Sources */,
+				68D736AD1FBD280900953B41 /* VirtualObjectLoader.swift in Sources */,
 				6A68615B1F6FB8B500882BCE /* LineNode.swift in Sources */,
 				6AF69F2B1F7128B200556339 /* R.generated.swift in Sources */,
+				68D736B41FBD280900953B41 /* VirtualObjectInteraction.swift in Sources */,
 				6A33659B1F7955970084BDE4 /* CoreGraphics+Extension.swift in Sources */,
 				A53029AE1FBD2F1B0043E0ED /* Record.swift in Sources */,
 				6A6861531F6FB68500882BCE /* ARKit+Extension.swift in Sources */,
+				68D736AB1FBD280900953B41 /* ViewController.swift in Sources */,
 				6A6861591F6FB89A00882BCE /* FocusSquare.swift in Sources */,
 				A53029B01FBD39820043E0ED /* Vehicle.swift in Sources */,
 				6A52B6341F74C37600B9F78E /* CylinderLine.swift in Sources */,
@@ -433,8 +499,11 @@
 				A53029B61FBD3D930043E0ED /* CarSelectionCell.swift in Sources */,
 				6AF69F271F7126A900556339 /* SettingViewController.swift in Sources */,
 				6AF69F301F71327D00556339 /* ApplicationSetting.swift in Sources */,
+				68D736B01FBD280900953B41 /* VirtualObjectSelection.swift in Sources */,
+				68D736A81FBD280900953B41 /* ViewController+ObjectSelection.swift in Sources */,
 				6AA965CA1F7101F30027ACAC /* MeasurementUnit.swift in Sources */,
 				6A68614C1F6FB59D00882BCE /* PlaneDetector.mm in Sources */,
+				68D736B11FBD280900953B41 /* ThresholdPanGesture.swift in Sources */,
 				6AA965BF1F7015AA0027ACAC /* UIAlertController+Dismiss.swift in Sources */,
 				6A6861571F6FB85000882BCE /* Plane.swift in Sources */,
 				6A1A770B1F6FD534003BED38 /* UIView+Extension.swift in Sources */,

@@ -50,13 +50,14 @@ extension CGPoint {
         self.x = CGFloat(vector.x)
         self.y = CGFloat(vector.y)
     }
-    
-    func distanceTo(_ point: CGPoint) -> CGFloat {
-        return (self - point).length()
+
+    /// Returns the length of a point when considered as a vector. (Used with gesture recognizers.)
+    var length: CGFloat {
+        return sqrt(x * x + y * y)
     }
     
-    func length() -> CGFloat {
-        return sqrt(self.x * self.x + self.y * self.y)
+    func distanceTo(_ point: CGPoint) -> CGFloat {
+        return (self - point).length
     }
     
     func midpoint(_ point: CGPoint) -> CGPoint {
