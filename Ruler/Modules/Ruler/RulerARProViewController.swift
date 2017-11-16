@@ -157,6 +157,7 @@ class RulerARProViewController: UIViewController {
                                                           menuButton.save,
                                                           menuButton.reset,
                                                           menuButton.setting,
+                                                          menuButton.selection,
                                                           menuButton.more)
     
     private let placeButton = UIButton(size: CGSize(width: 80, height: 80), image: Image.Place.length)
@@ -166,7 +167,9 @@ class RulerARProViewController: UIViewController {
                          save: UIButton(size: CGSize(width: 50, height: 50), image: Image.Menu.save),
                         reset: UIButton(size: CGSize(width: 50, height: 50), image: Image.Menu.reset),
                         setting: UIButton(size: CGSize(width: 50, height: 50), image: Image.Menu.setting),
-                        more: UIButton(size: CGSize(width: 60, height: 60), image: Image.More.close))
+                        selection: UIButton(size: CGSize(width: 50, height: 50), image: Image.Menu.length),
+                        more: UIButton(size: CGSize(width: 60, height: 60), image: Image.More.close)
+                        )
     
    
     
@@ -259,6 +262,7 @@ class RulerARProViewController: UIViewController {
             menuButton.reset.addTarget(self, action: #selector(RulerARProViewController.restartAction(_:)), for: .touchUpInside)
             menuButton.measurement.addTarget(self, action: #selector(RulerARProViewController.changeMeasureMode(_:)), for: .touchUpInside)
             menuButton.save.addTarget(self, action: #selector(RulerARProViewController.saveImage(_:)), for: .touchUpInside)
+            menuButton.selection.addTarget(self, action: #selector(RulerARProViewController.showSelection(_:)), for: .touchUpInside)
             menuButtonSet.frame = CGRect(x: (width - 40 - 60), y: placeButton.frame.origin.y + 10, width: 60, height: 60)
             
 
@@ -418,6 +422,14 @@ class RulerARProViewController: UIViewController {
             return
         }
         showMenuAction(sender)
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func showSelection(_ sender: UIButton) {
+        guard let vc = UIStoryboard(name: "CarSelection", bundle: nil).instantiateInitialViewController() else {
+            return
+        }
+        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         present(vc, animated: true, completion: nil)
     }
     
