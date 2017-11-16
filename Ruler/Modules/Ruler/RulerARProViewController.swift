@@ -88,7 +88,23 @@ class RulerARProViewController: UIViewController {
     private var lineSet: LineSetNode?
     
     
-    private var lines: [LineNode] = []
+    private var lines: [LineNode] = [] {
+        didSet {
+            let (width, length, height) = measurementData
+            let measurementReads = [width, length, height].map { $0.flatMap { MeasurementUnit(meterUnitValue: $0) } }.map { $0?.attributeString(type: measureUnit).string }
+            let resultString = "width: \(measurementReads[0] ?? "?") | length: \(measurementReads[1] ?? "?") | height: \(measurementReads[2] ?? "?")"
+            
+            resultLabel.text = resultString
+        }
+    }
+    
+    private var measurementData: (Float?, Float?, Float?) {
+        return (
+            lines.index(lines.startIndex, offsetBy: 0, limitedBy: lines.endIndex).flatMap{$0 == lines.endIndex ? nil : lines[$0].length},
+            lines.index(lines.startIndex, offsetBy: 1, limitedBy: lines.endIndex).flatMap{$0 == lines.endIndex ? nil : lines[$0].length},
+            lines.index(lines.startIndex, offsetBy: 2, limitedBy: lines.endIndex).flatMap{$0 == lines.endIndex ? nil : lines[$0].length}
+        )
+    }
     private var lineSets: [LineSetNode] = []
     private var planes = [ARPlaneAnchor: Plane]()
     private var focusSquare: FocusSquare?
@@ -119,18 +135,19 @@ class RulerARProViewController: UIViewController {
     }
     private var measureUnit = ApplicationSetting.Status.defaultUnit {
         didSet {
-            let v = measureValue
-            measureValue = v
+//            let v = measureValue
+//            measureValue = v
+            lines = {lines}()
         }
     }
     private var measureValue: MeasurementUnit? {
         didSet {
-            if let m = measureValue {
-                resultLabel.text = nil
-                resultLabel.attributedText = m.attributeString(type: measureUnit)
-            } else {
-                resultLabel.attributedText = mode.toAttrStr()
-            }
+//            if let m = measureValue {
+//                resultLabel.text = nil
+//                resultLabel.attributedText = m.attributeString(type: measureUnit)
+//            } else {
+//                resultLabel.attributedText = mode.toAttrStr()
+//            }
         }
     }
     
@@ -323,7 +340,11 @@ class RulerARProViewController: UIViewController {
         case .length:
             if let l = line {
                 lines.append(l)
-                line = nil
+                if lines.count == 1 || lines.count == 2 {
+                    line = LineNode(startPos: lines[0].startNode.position, sceneV: sceneView)
+                } else {
+                    line = nil
+                }
             } else  {
                 let startPos = sceneView.worldPositionFromScreenPosition(indicator.center, objectPos: nil)
                 if let p = startPos.position {
@@ -497,7 +518,7 @@ fileprivate extension RulerARProViewController {
     }
     
     func updateLine() -> Void {
-        let startPos = sceneView.worldPositionFromScreenPosition(self.indicator.center, objectPos: nil)
+        let startPos = sceneView.worldPositionFromScreenPosition(self.indicator.center, objectPos: nil, skippingFirstStep: lines.count == 2)
         if let p = startPos.position {
             let camera = self.sceneView.session.currentFrame?.camera
             let cameraPos = SCNVector3.positionFromTransform(camera!.transform)
@@ -516,7 +537,7 @@ fileprivate extension RulerARProViewController {
                     cancleButton.normalImage = Image.Close.delete
                     return
                 }
-                let length = currentLine.updatePosition(pos: p, camera: self.sceneView.session.currentFrame?.camera, unit: measureUnit)
+                let length = currentLine.updatePosition(pos: p, camera: self.sceneView.session.currentFrame?.camera, unit: measureUnit, limitToHorizontal: lines.count < 2)
                 measureValue =  MeasurementUnit(meterUnitValue: length, isArea: false)
                 cancleButton.normalImage = Image.Close.cancle
             case .area:
