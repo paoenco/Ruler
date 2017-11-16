@@ -46,6 +46,7 @@
 		6AF69F311F71378500556339 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AF69F331F71378500556339 /* SettingViewController.storyboard */; };
 		6AFF56841F78B53B00AE7595 /* RulerARProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF56831F78B53B00AE7595 /* RulerARProViewController.swift */; };
 		6AFF56861F78BD7B00AE7595 /* PopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF56851F78BD7B00AE7595 /* PopButton.swift */; };
+		BE24ABC61FBD607C00F4D294 /* splash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE24ABC51FBD607C00F4D294 /* splash.jpg */; };
 		FB417B86065A48520330817B /* Pods_Ruler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F224D5CD6B11A57FC3657F6C /* Pods_Ruler.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		6AFF56851F78BD7B00AE7595 /* PopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopButton.swift; sourceTree = "<group>"; };
 		7610879C429C51E6F2EE786A /* Pods-Ruler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ruler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ruler/Pods-Ruler.release.xcconfig"; sourceTree = "<group>"; };
 		A791E8A49E1DC92AAD59684D /* Pods-Ruler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ruler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ruler/Pods-Ruler.debug.xcconfig"; sourceTree = "<group>"; };
+		BE24ABC51FBD607C00F4D294 /* splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splash.jpg; sourceTree = "<group>"; };
 		F224D5CD6B11A57FC3657F6C /* Pods_Ruler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ruler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				6A3365961F79205E0084BDE4 /* SetPoint.wav */,
+				BE24ABC51FBD607C00F4D294 /* splash.jpg */,
 				6AF69F2A1F7128B200556339 /* R.generated.swift */,
 				6AA965E11F711B020027ACAC /* LaunchScreen.storyboard */,
 				6AA965E41F711B3A0027ACAC /* RulerString.strings */,
@@ -376,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE24ABC61FBD607C00F4D294 /* splash.jpg in Resources */,
 				6A3365971F7923560084BDE4 /* SetPoint.wav in Resources */,
 				6AA965E51F711B3E0027ACAC /* RulerString.strings in Resources */,
 				6AA965E61F711B470027ACAC /* LaunchScreen.storyboard in Resources */,
