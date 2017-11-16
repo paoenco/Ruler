@@ -128,5 +128,15 @@ func area3DPolygon(points: [SCNVector3], plane: SCNVector3 ) -> Float32 {
     return area
 }
 
+// MARK: - float4x4 extensions
 
-
+extension float4x4 {
+    /**
+     Treats matrix as a (right-hand column-major convention) transform matrix
+     and factors out the translation component of the transform.
+     */
+    var translation: float3 {
+        let translation = columns.3
+        return float3(translation.x, translation.y, translation.z)
+    }
+}
