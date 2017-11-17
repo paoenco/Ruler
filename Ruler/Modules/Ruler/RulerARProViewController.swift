@@ -166,12 +166,9 @@ class RulerARProViewController: UIViewController {
     
     
     
-    private lazy var menuButtonSet: PopButton = PopButton(buttons: menuButton.measurement,
-                                                          menuButton.save,
-                                                          menuButton.reset,
+    private lazy var menuButtonSet: PopButton = PopButton(buttons: menuButton.reset,
                                                           menuButton.setting,
                                                           menuButton.selection,
-                                                          menuButton.add,
                                                           menuButton.more)
     
     private let placeButton = UIButton(size: CGSize(width: 80, height: 80), image: Image.Place.length)
